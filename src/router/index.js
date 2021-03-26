@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+//import Calendar from "../views/Calendar.vue";
 
 Vue.use(VueRouter);
 
@@ -10,6 +11,11 @@ const routes = [
     name: "Home",
     component: Home,
   },
+  // {
+  //   path: "/calendar",
+  //   name: "Calendar",
+  //   component: Calendar,
+  // },
   {
     path: "/about",
     name: "About",
@@ -23,6 +29,7 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+  mode: "history",
 });
 
 export default router;
