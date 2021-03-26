@@ -1,0 +1,34 @@
+{
+  "tasks": [
+    {
+      "text": "Get food",
+      "day": "12/13 at noon",
+      "reminder": true,
+      "id": "FgwP7Kg"
+    },
+    {
+      "text": "Feed Cat",
+      "day": "5pm",
+      "reminder": false,
+      "id": "Cjuc4hP"
+    },
+    {
+      "text": "clean house",
+      "day": "Tomorrow",
+      "reminder": false,
+      "id": "hviXebL"
+    },
+    {
+      "text": "update computer",
+      "day": "Wednesday at 3pm",
+      "reminder": true,
+      "id": "8t3Xywj"
+    },
+    {
+      "text": "Buy food",
+      "day": "Friday",
+      "reminder": false,
+      "id": "4lAdrgH"
+    }
+  ]
+}
