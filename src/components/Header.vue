@@ -2,12 +2,11 @@
   <header>
     <!-- <h1>{{ title }}</h1> -->
     <router-link to="/">Reminders</router-link>
-    <router-link to="/calendar">Calendar</router-link>
+    <router-link to="/about">Calendar</router-link>
     <Button
-      v-show="homePage"
       @btn-click="$emit('toggle-add-task')"
       :text="showAddTask ? 'x' : '+'"
-      :color="showAddTask ? '#e33f34' : 'var(--button-color)'"
+      :color="showAddTask ? '#e33f34' : 'blue'"
       class="addTaskBtn"
     />
   </header>
@@ -44,6 +43,7 @@ a {
   /* color: #c9d1d2; */
   font-size: 4.1em;
   text-decoration: none;
+  color: black;
 }
 
 a:first-of-type {

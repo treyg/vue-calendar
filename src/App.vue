@@ -19,20 +19,22 @@
       <v-container fluid>
         <router-view :showAddTask="showAddTask"></router-view>
         <Footer />
-        <!-- If using vue-router -->
       </v-container>
     </v-main>
+    <BottomNav />
   </v-app>
 </template>
 
 <script>
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import BottomNav from "./components/BottomNav";
 export default {
   name: "App",
   components: {
     Header,
     Footer,
+    BottomNav,
   },
   data() {
     return {

@@ -1,5 +1,16 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <Calendar />
   </div>
 </template>
+
+<script>
+import Calendar from "../components/Calendar";
+
+export default {
+  name: "About",
+  components: {
+    Calendar,
+  },
+};
+</script>
