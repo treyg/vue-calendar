@@ -1,36 +1,36 @@
 <template>
   <header>
     <!-- <h1>{{ title }}</h1> -->
-    <router-link to="/">Reminders</router-link>
-    <router-link to="/about">Calendar</router-link>
-    <Button
+    <router-link to="/"><h4>Reminders</h4></router-link>
+    <router-link to="/about"><h4>Calendar</h4></router-link>
+    <!-- <Button
       @btn-click="$emit('toggle-add-task')"
       :text="showAddTask ? 'x' : '+'"
       :color="showAddTask ? '#e33f34' : 'blue'"
       class="addTaskBtn"
-    />
+    /> -->
   </header>
 </template>
 
 <script>
-import Button from "./Button";
+//import Button from "./Button";
 
 export default {
   name: "Header",
-  props: {
-    title: String,
-    showAddTask: Boolean,
-  },
-  components: {
-    Button,
-  },
-  computed: {
-    homePage() {
-      if (this.$route.path === "/") {
-        return true;
-      } else return false;
-    },
-  },
+  // props: {
+  //   title: String,
+  //   showAddTask: Boolean,
+  // },
+  // components: {
+  //   Button,
+  // },
+  // computed: {
+  //   homePage() {
+  //     if (this.$route.path === "/") {
+  //       return true;
+  //     } else return false;
+  //   },
+  // },
 };
 </script>
 <style scoped>
@@ -62,4 +62,12 @@ button {
   line-height: 0.5;
   font-weight: 900;
 }
+
+.router-link-exact-active {
+  border-bottom: 2px solid white;
+}
+
+/* h4 {
+  color: white;
+} */
 </style>

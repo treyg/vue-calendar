@@ -1,5 +1,5 @@
 <template>
-  <form @submit="onSubmit" class="add-form">
+  <!-- <form @submit="onSubmit" class="add-form">
     <div class="form-control">
       <label>Task</label>
       <input type="text" v-model="text" name="text" placeholder="Add Task" />
@@ -19,7 +19,35 @@
     </div>
 
     <input type="submit" value="Save Task" class="btn btn-block" />
-  </form>
+  </form> -->
+
+  <v-form ref="form" v-model="valid" @submit="onSubmit" lazy-validation>
+    <v-text-field
+      v-model="text"
+      label="Task"
+      required
+      name="text"
+    ></v-text-field>
+
+    <v-text-field
+      v-model="day"
+      label="Day & Time"
+      name="day"
+      required
+    ></v-text-field>
+
+    <v-card
+      elevation="0"
+      id="checkbox-submit-container"
+      class="d-flex align-center justify-space-around"
+    >
+      <v-checkbox v-model="reminder" label="Set a reminder"></v-checkbox>
+
+      <v-btn type="submit" color="primary" @click="resetValidation">
+        Save Task
+      </v-btn>
+    </v-card>
+  </v-form>
 </template>
 <script>
 export default {
@@ -37,9 +65,10 @@ export default {
       if (!this.text) {
         alert("Please add a task");
         return;
+      } else if (!this.day) {
+        alert("Please add a time");
       }
       const newTask = {
-        // id: Math.floor(Math.random() * 100000),
         text: this.text,
         day: this.day,
         reminder: this.reminder,
@@ -53,45 +82,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.add-form {
-  margin-bottom: 2.2em;
-}
-.form-control {
-  margin: 2em 0;
-}
-.form-control label {
-  display: block;
-  font-size: 3em;
-}
-.form-control input {
-  width: 96%;
-  height: 2.2em;
-  margin: 0.3em;
-  padding: 0.3em 0.5em;
-  font-size: 3.5em;
-}
-.form-control-check {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.form-control-check label {
-  flex: 1;
-}
-.form-control-check input {
-  flex: 2;
-  height: 20px;
-}
-
-form input[type="text"] {
-  /* background: #060a0f;
-  color: white;
-  border: 1px solid #c9d1d2; */
-  border-radius: 6px;
-}
-
-form input[type="submit"] {
-  width: 96%;
-}
-</style>
+<style scoped></style>

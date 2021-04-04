@@ -21,7 +21,7 @@
         <Footer />
       </v-container>
     </v-main>
-    <BottomNav />
+    <BottomNav @fab-click="toggleAddTask" />
   </v-app>
 </template>
 
@@ -50,14 +50,6 @@ export default {
 </script>
 
 <style>
-/* :root {
-  --border: 0.1em solid #c9d1d2;
-  --dark-container: #0d1117;
-  --darkest-container: #090c10;
-  --date-color: #a9d1e7;
-  --button-color: #1f6feb;
-} */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -68,47 +60,5 @@ export default {
   body {
     font-size: 1.302vw;
   }
-}
-
-.container {
-  width: 100%;
-  max-width: 90em;
-  margin: auto;
-  min-height: 80em;
-  /* border: var(--border); */
-  padding: 3em;
-  border-radius: 0.5em;
-  /* background: var(--darkest-container); */
-  color: #c9d1d2;
-  height: 100%;
-  margin: 0%;
-}
-
-.router-link-exact-active {
-  font-weight: 700;
-}
-
-.btn {
-  display: inline-block;
-  background: var(--button-color);
-  color: #fff;
-  border: none;
-  padding: 0.8em 1.8em;
-  margin: 0.5em;
-  border-radius: 0.5em;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 2.8em;
-  font-family: inherit;
-}
-.btn:focus {
-  outline: none;
-}
-.btn:active {
-  transform: scale(0.98);
-}
-.btn-block {
-  display: block;
-  width: 100%;
 }
 </style>
