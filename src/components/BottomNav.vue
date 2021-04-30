@@ -17,8 +17,8 @@
       <v-icon>{{ fab ? "mdi-plus" : "mdi-close" }}</v-icon>
     </v-btn>
 
-    <v-bottom-navigation class="btm-nav" :value="activeBtn" fixed grow>
-      <v-app-bar-nav-icon large></v-app-bar-nav-icon>
+    <v-bottom-navigation class="btm-nav" fixed grow>
+      <v-app-bar-nav-icon @click="triggerDrawer()" large></v-app-bar-nav-icon>
     </v-bottom-navigation>
   </div>
 </template>
@@ -35,6 +35,9 @@ export default {
   methods: {
     fabClickEmit() {
       this.$emit("fab-click");
+    },
+    triggerDrawer() {
+      window.eventBus.$emit("TRIGGER_DRAWER");
     },
   },
 };

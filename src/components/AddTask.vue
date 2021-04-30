@@ -21,7 +21,7 @@
     <input type="submit" value="Save Task" class="btn btn-block" />
   </form> -->
 
-  <v-form ref="form" v-model="valid" @submit="onSubmit" lazy-validation>
+  <v-form ref="form" @submit="onSubmit" lazy-validation>
     <v-text-field
       v-model="text"
       label="Task"
@@ -43,9 +43,7 @@
     >
       <v-checkbox v-model="reminder" label="Set a reminder"></v-checkbox>
 
-      <v-btn type="submit" color="primary" @click="resetValidation">
-        Save Task
-      </v-btn>
+      <v-btn type="submit" color="primary"> Save Task </v-btn>
     </v-card>
   </v-form>
 </template>

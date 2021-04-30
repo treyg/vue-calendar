@@ -1,40 +1,40 @@
 <template>
   <v-app>
-    <v-navigation-drawer app>
-      <!-- -->
-    </v-navigation-drawer>
-
+    <NavDrawer />
     <v-app-bar app>
-      <!-- -->
-      <Header
-        @toggle-add-task="toggleAddTask"
-        title="Reminders"
-        :showAddTask="showAddTask"
-      />
+      <Header />
     </v-app-bar>
 
     <!-- Sizes your content based upon application components -->
     <v-main>
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
+        <Tasks
+          @toggle-add-task="toggleAddTask"
+          title="Reminders"
+          :showAddTask="showAddTask"
+        />
         <router-view :showAddTask="showAddTask"></router-view>
-        <Footer />
       </v-container>
     </v-main>
-    <BottomNav @fab-click="toggleAddTask" />
+    <v-footer>
+      <BottomNav @fab-click="toggleAddTask" @menu-click="toggleDrawer" />
+    </v-footer>
   </v-app>
 </template>
 
 <script>
+import NavDrawer from "./components/NavDrawer";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Tasks from "./components/Tasks";
 import BottomNav from "./components/BottomNav";
 export default {
   name: "App",
   components: {
+    Tasks,
     Header,
-    Footer,
     BottomNav,
+    NavDrawer,
   },
   data() {
     return {
@@ -45,6 +45,9 @@ export default {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask;
     },
+  },
+  created() {
+    window.eventBus = this;
   },
 };
 </script>

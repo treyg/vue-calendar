@@ -1,4 +1,6 @@
-# vue-reminders-app
+# Vue Reminder/Calendar PWA (in development)
+
+Reminder and calendar PWA built with Vue Js, Vuetify and Firebase.
 
 ## Project setup
 
@@ -12,10 +14,10 @@ npm install
 npm run serve
 ```
 
-### Lints and fixes files
+### Loads JSON Server backend sample data
 
 ```
-npm run lint
+npm run backend
 ```
 
 ### Customize configuration
