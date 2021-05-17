@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Reminders from "../views/Reminders.vue";
 //import About from "../views/About.vue";
 import Calendar from "../views/Calendar.vue";
+import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 
 Vue.use(VueRouter);
@@ -17,6 +18,11 @@ const routes = [
     path: "/calendar",
     name: "Calendar",
     component: Calendar,
+  },
+  {
+    path: "/signup",
+    name: "Signup",
+    component: Signup,
   },
   {
     path: "/login",

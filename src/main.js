@@ -3,7 +3,6 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import vuetify from "./plugins/vuetify";
-import "@/firebase/firebase";
 
 new Vue({
   router,

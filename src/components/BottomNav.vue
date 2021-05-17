@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <!-- Hide component on signup page -->
+  <div v-if="!isSignupOrLogin">
     <!-- FAB for adding tasks -->
     <v-btn
       @click="
@@ -38,6 +39,11 @@ export default {
     },
     triggerDrawer() {
       window.eventBus.$emit("TRIGGER_DRAWER");
+    },
+  },
+  computed: {
+    isSignupOrLogin() {
+      return this.$route.name == "Login" || this.$route.name == "Signup";
     },
   },
 };

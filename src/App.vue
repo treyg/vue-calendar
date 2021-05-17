@@ -18,7 +18,7 @@
       </v-container>
     </v-main>
     <v-footer>
-      <BottomNav @fab-click="toggleAddTask" @menu-click="toggleDrawer" />
+      <BottomNav @fab-click="toggleAddTask" />
     </v-footer>
   </v-app>
 </template>

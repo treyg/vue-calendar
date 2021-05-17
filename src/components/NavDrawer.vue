@@ -35,11 +35,11 @@ export default {
     drawer: Boolean,
   },
 
-  data() {
-    // return {
-    //   drawer: null,
-    // };
-  },
+  // data() {
+  //   return {
+  //     drawer: null,
+  //   };
+  // },
   methods: {},
   mounted() {
     window.eventBus.$on("TRIGGER_DRAWER", () => {
