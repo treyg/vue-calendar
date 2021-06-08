@@ -18,7 +18,7 @@
     <v-list-item-content>
       <v-list-item-title
         >{{ task.text }}
-        <v-icon color="red" medium @click="$emit('delete-task', task.id)">
+        <v-icon color="error" medium @click="$emit('delete-task', task.id)">
           mdi-close
         </v-icon></v-list-item-title
       >
