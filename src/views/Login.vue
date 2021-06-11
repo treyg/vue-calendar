@@ -21,7 +21,7 @@
             <v-btn block @click="loginUser" color="primary"> Sign In </v-btn>
           </v-col>
         </v-row>
-        <ErrorModal :dialog="null" />
+        <ErrorModal v-if="error" :dialogSetting="true" :errorsArray="errorsArray"/>
       </v-container>
       <p class="subtitle-1" align="center">
         Don't have an account?
@@ -45,7 +45,8 @@ export default {
       email: null,
       password: null,
       value: String,
-      dialog: true,
+      error: false,
+      errorsArray: [],
     };
   },
   methods: {
@@ -61,14 +62,11 @@ export default {
       );
       if (error) {
         console.log(error);
-        //this.errorModal(error);
-        this.dialog = true;
+        this.error = true;
+        this.errorsArray.push(error);
       }
       console.log(user, session, error);
     },
-    // errorModal() {
-    //   this.dialog = true;
-    // },
   },
 };
 </script>
