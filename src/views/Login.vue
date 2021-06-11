@@ -18,11 +18,12 @@
               :append-icon="value ? 'mdi-eye' : 'mdi-eye-off'"
             ></v-text-field>
 
-            <v-btn block @click="loginUser" color="primary"> Sign Up </v-btn>
+            <v-btn block @click="loginUser" color="primary"> Sign In </v-btn>
           </v-col>
         </v-row>
+        <ErrorModal :dialog="null" />
       </v-container>
-      <p class="subtitle-1">
+      <p class="subtitle-1" align="center">
         Don't have an account?
         <router-link style="text-decoration: none; color: inherit" to="/signup"
           >Signup</router-link
@@ -32,37 +33,42 @@
   </div>
 </template>
 <script>
-import { createClient } from "@supabase/supabase-js";
-const supabaseUrl = "https://terbqcgxfxoyxgztbilu.supabase.co";
-const supabaseKey = process.env.VUE_APP_SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
-
+import { supabase } from "../supabaseClient";
+import ErrorModal from "../components/ErrorModal.vue";
 export default {
   name: "Login",
+  components: {
+    ErrorModal,
+  },
   data() {
     return {
       email: null,
       password: null,
       value: String,
+      dialog: true,
     };
   },
   methods: {
-    loginUser() {
-      supabase.auth
-        .signIn({
+    async loginUser() {
+      const { user, session, error } = await supabase.auth.signIn(
+        {
           email: this.email,
           password: this.password,
-        })
-        .then((response) => {
-          console.log(response);
-          return response;
-        })
-        .catch((error) => {
-          if (error) {
-            console.log(error);
-          }
-        });
+        },
+        {
+          //redirectTo: this.$router.push("/"),
+        }
+      );
+      if (error) {
+        console.log(error);
+        //this.errorModal(error);
+        this.dialog = true;
+      }
+      console.log(user, session, error);
     },
+    // errorModal() {
+    //   this.dialog = true;
+    // },
   },
 };
 </script>

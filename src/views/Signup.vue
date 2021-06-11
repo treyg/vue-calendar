@@ -22,7 +22,7 @@
           </v-col>
         </v-row>
       </v-container>
-      <p class="subtitle-1">
+      <p class="subtitle-1" align="center">
         Already have an account?
         <router-link style="text-decoration: none; color: inherit" to="/login"
           >Login</router-link
@@ -32,13 +32,10 @@
   </div>
 </template>
 <script>
-import { createClient } from "@supabase/supabase-js";
-const supabaseUrl = "https://terbqcgxfxoyxgztbilu.supabase.co";
-const supabaseKey = process.env.VUE_APP_SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { supabase } from "../supabaseClient";
 
 export default {
-  name: "Login",
+  name: "Signup",
   data() {
     return {
       email: null,
