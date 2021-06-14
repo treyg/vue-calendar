@@ -14,7 +14,7 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="dialog = !dialogSetting">I accept</v-btn>
+          <v-btn color="primary" text @click="closeDialog">close </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -38,6 +38,13 @@ export default {
       dialog: this.dialogSetting,
       errors: this.errorsArray,
     };
+  },
+
+  methods: {
+    closeDialog() {
+      this.errors.length = 0;
+      this.$emit("updateDialogSetting", false);
+    },
   },
 };
 </script>
