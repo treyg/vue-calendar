@@ -7,14 +7,14 @@
         </v-card-title>
 
         <v-card-text v-for="(err, index) in errors" :key="index">
-          <p>{{ err.message }}</p></v-card-text
-        >
+          <p>{{ err }}</p>
+        </v-card-text>
 
         <v-divider></v-divider>
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="dialog = !dialog"> Close </v-btn>
+          <v-btn color="primary" text @click="closeDialog">close </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -28,15 +28,23 @@ export default {
       type: Boolean,
       default: false,
     },
-    errorArray: {
+
+    errorsArray: {
       type: Array,
     },
   },
   data() {
     return {
       dialog: this.dialogSetting,
-      errors: this.errorArray,
+      errors: this.errorsArray,
     };
+  },
+
+  methods: {
+    closeDialog() {
+      this.errors.length = 0;
+      this.$emit("updateDialogSetting", false);
+    },
   },
 };
 </script>

@@ -23,8 +23,9 @@
         </v-row>
         <ErrorModal
           v-if="error"
-          :dialogSetting="true"
-          :errorArray="errorArray"
+          :dialogSetting="error"
+          :errorsArray="errorsArray"
+          @updateDialogSetting="errorUpdate"
         />
       </v-container>
       <p class="subtitle-1" align="center">
@@ -49,9 +50,9 @@ export default {
       email: null,
       password: null,
       value: String,
-      dialog: Boolean,
-      error: null,
-      errorArray: [],
+      error: false,
+      errorsArray: [],
+      dialogFlag: true,
     };
   },
   methods: {
@@ -67,15 +68,15 @@ export default {
       );
       if (error) {
         console.log(error);
-
         this.error = true;
-        this.errorArray.push(error);
+        this.errorsArray.push(error);
       }
       console.log(user, session, error);
     },
-    // errorModal() {
-    //   this.dialog = true;
-    // },
+
+    errorUpdate(val) {
+      this.error = val;
+    },
   },
 };
 </script>
