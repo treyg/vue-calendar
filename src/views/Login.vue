@@ -70,8 +70,13 @@ export default {
         console.log(error);
         this.error = true;
         this.errorsArray.push(error);
+      } else {
+        this.$router.push("/");
       }
-      console.log(user, session, error);
+
+      this.$store.commit("login", user);
+      this.$store.commit("attemptLogin");
+      this.$store.commit("session", session);
     },
 
     errorUpdate(val) {

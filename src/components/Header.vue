@@ -10,6 +10,11 @@
 <script>
 export default {
   name: "Header",
+  methods: {
+    showData() {
+      console.log(this.$store.state.userInformation);
+    },
+  },
 };
 </script>
 <style scoped>
