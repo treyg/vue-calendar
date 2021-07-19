@@ -12,7 +12,7 @@ export default {
   name: "Header",
   methods: {
     showData() {
-      console.log(this.$store.state.userInformation);
+      console.log(this.$store.state.userIn);
     },
   },
 };
