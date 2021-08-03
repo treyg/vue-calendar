@@ -21,5 +21,9 @@ export default new Vuex.Store({
     session(state) {
       state.session = true;
     },
+    logOut(state) {
+      state.session = false;
+      state.userInformation = null;
+    },
   },
 });

@@ -30,9 +30,7 @@
       </v-container>
       <p class="subtitle-1" align="center">
         Don't have an account?
-        <router-link style="text-decoration: none; color: inherit" to="/signup"
-          >Signup</router-link
-        >
+        <router-link style="color: inherit" to="/signup">Signup</router-link>
       </p>
     </v-form>
   </div>
@@ -86,8 +84,7 @@ export default {
 };
 </script>
 <style scoped>
-a {
-  text-decoration: underline;
-  border-bottom: 1px solid black;
-}
+/* a {
+  text-decoration: underline !important;
+} */
 </style>

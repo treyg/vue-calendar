@@ -1,10 +1,9 @@
 <template>
-  <header>
-    <!-- <h1>{{ title }}</h1> -->
-    <!-- <router-link to="/"><h4>Reminders</h4></router-link>
-    <router-link to="/about"><h4>Calendar</h4></router-link> -->
-    <h1>{{ $route.name }}</h1>
-    <h2>Welcome {{ checkMail }}</h2>
+  <header v-if="loggedIn">
+    <h2>
+      {{ $route.name }}
+    </h2>
+    <h4>{{ checkMail }}</h4>
   </header>
 </template>
 
@@ -13,14 +12,13 @@ export default {
   name: "Header",
   // data() {
   //   return {
-  //     loggedIn: null,
   //     userEmail: null,
   //   };
   // },
   computed: {
-    // checkLog() {
-    //   return this.loggedIn == this.$store.state.userInformation.aud;
-    // },
+    loggedIn() {
+      return this.$store.state.userInformation;
+    },
     checkMail() {
       return this.$store.state.userInformation.email;
     },
@@ -31,5 +29,9 @@ export default {
 /* h1 {
   font-size: 3em;
   font-weight: normal;
+}
+
+h2 {
+  font-size: 2em;
 } */
 </style>

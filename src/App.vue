@@ -59,9 +59,9 @@ export default {
   padding: 0;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   body {
-    font-size: 1.302vw;
+    font-size: 2.6vw;
   }
-}
+} */
 </style>

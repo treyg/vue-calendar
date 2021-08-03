@@ -23,14 +23,16 @@
         </v-list-item>
       </v-list-item-group>
     </v-list>
+    <v-btn @click="toggleTheme" text rounded>Toggle Theme</v-btn>
     <template v-slot:append>
       <div class="pa-2">
-        <v-btn block> Logout </v-btn>
+        <v-btn block @click="logUserOut"> Logout </v-btn>
       </div>
     </template>
   </v-navigation-drawer>
 </template>
 <script>
+import { supabase } from "../supabaseClient";
 export default {
   name: "NavDrawer",
   // props: {
@@ -42,7 +44,21 @@ export default {
       drawer: null,
     };
   },
-  methods: {},
+  methods: {
+    async logUserOut() {
+      const { user, error } = await supabase.auth.signOut({
+        redirectTo: this.$router.push("/login"),
+      });
+      if (error) {
+        console.log(error);
+      }
+      this.$store.commit("logOut", user);
+    },
+    toggleTheme() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    },
+  },
+
   mounted() {
     window.eventBus.$on("TRIGGER_DRAWER", () => {
       this.drawer = !this.drawer;
