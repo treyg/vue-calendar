@@ -69,12 +69,11 @@ export default {
         this.error = true;
         this.errorsArray.push(error);
       } else {
+        this.$store.commit("attemptLogin");
+        this.$store.commit("login", user);
+        this.$store.commit("session", session);
         this.$router.push("/");
       }
-
-      this.$store.commit("login", user);
-      this.$store.commit("attemptLogin");
-      this.$store.commit("session", session);
     },
 
     errorUpdate(val) {
