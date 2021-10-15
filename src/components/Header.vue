@@ -1,9 +1,9 @@
 <template>
   <header v-if="loggedIn">
-    <h2>
+    <h3>
       {{ $route.name }}
-    </h2>
-    <h4>{{ checkMail }}</h4>
+    </h3>
+    <!-- <h4>{{ checkMail }}</h4> -->
   </header>
 </template>
 
@@ -19,9 +19,9 @@ export default {
     loggedIn() {
       return this.$store.state.userInformation;
     },
-    checkMail() {
-      return this.$store.state.userInformation.email;
-    },
+    // checkMail() {
+    //   return this.$store.state.userInformation.email;
+    // },
   },
 };
 </script>

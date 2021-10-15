@@ -15,18 +15,13 @@ const routes = [
     path: "/",
     name: "Reminders",
     component: Reminders,
-    beforeEnter: (to, from, next) => {
-      if (store.state.session == undefined) {
-        next("/login");
-      } else {
-        next();
-      }
-    },
+    //beforeEnter: checkAuth,
   },
   {
     path: "/calendar",
     name: "Calendar",
     component: Calendar,
+    beforeEnter: checkAuth,
   },
   {
     path: "/signup",
@@ -39,6 +34,14 @@ const routes = [
     component: Login,
   },
 ];
+
+function checkAuth(to, from, next) {
+  if (store.state.session == undefined) {
+    next("/login");
+  } else {
+    next();
+  }
+}
 
 const router = new VueRouter({
   routes,

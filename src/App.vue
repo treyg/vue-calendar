@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <NavDrawer />
-    <v-app-bar app>
+    <v-app-bar app v-if="!isLogin">
       <Header />
     </v-app-bar>
 
@@ -48,6 +48,11 @@ export default {
   },
   created() {
     window.eventBus = this;
+  },
+  computed: {
+    isLogin() {
+      return this.$route.name === "Login";
+    },
   },
 };
 </script>

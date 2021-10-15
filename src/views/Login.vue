@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-form align="center" @submit.prevent="loginUser">
+    <v-form @submit.prevent="loginUser">
       <v-container>
         <v-row>
-          <v-col cols="12" md="4">
+          <v-col cols="12" md="6" class="mx-auto">
             <v-text-field
               v-model="email"
               label="E-mail"
@@ -16,9 +16,16 @@
               @click:append="() => (value = !value)"
               :type="value ? 'password' : 'text'"
               :append-icon="value ? 'mdi-eye' : 'mdi-eye-off'"
+              v-on:keyup.enter="loginUser"
             ></v-text-field>
 
             <v-btn block @click="loginUser" color="primary"> Sign In </v-btn>
+            <p class="subtitle-1 mt-4" align="center">
+              Don't have an account?
+              <router-link style="color: inherit" to="/signup"
+                >Signup</router-link
+              >
+            </p>
           </v-col>
         </v-row>
         <ErrorModal
@@ -28,10 +35,6 @@
           @updateDialogSetting="errorUpdate"
         />
       </v-container>
-      <p class="subtitle-1" align="center">
-        Don't have an account?
-        <router-link style="color: inherit" to="/signup">Signup</router-link>
-      </p>
     </v-form>
   </div>
 </template>
@@ -55,15 +58,10 @@ export default {
   },
   methods: {
     async loginUser() {
-      const { user, session, error } = await supabase.auth.signIn(
-        {
-          email: this.email,
-          password: this.password,
-        },
-        {
-          //redirectTo: this.$router.push("/"),
-        }
-      );
+      const { user, session, error } = await supabase.auth.signIn({
+        email: this.email,
+        password: this.password,
+      });
       if (error) {
         console.log(error);
         this.error = true;

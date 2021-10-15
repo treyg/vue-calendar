@@ -10,6 +10,7 @@
     <v-text-field
       v-model="day"
       label="Day & Time"
+      placeholder="Today at 5pm"
       name="day"
       required
     ></v-text-field>

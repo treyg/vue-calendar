@@ -28,6 +28,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Todo list
 
-- Add navigation guard
 - Push reminder items to db instead of local JSON
 - Sync reminder items with calendar component
